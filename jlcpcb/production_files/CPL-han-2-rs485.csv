@@ -1,0 +1,10 @@
+Designator,Val,Package,Mid X,Mid Y,Rotation,Layer
+C1,100n,C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,132.715,-95.0,180.0,top
+J1,RJ12,RJ12_Amphenol_54601,116.5,-92.09,180.0,top
+J2,RJ45,RJ45_Amphenol_54602-x08_Horizontal,156.5,-92.1,180.0,top
+R1,120R,R_0805_2012Metric,140.335,-99.225,90.0,top
+R2,10k,R_0805_2012Metric,126.5975,-99.86,90.0,top
+R3,4k7,R_0805_2012Metric,140.335,-94.488,-90.0,top
+R4,4k7,R_0805_2012Metric,140.335,-103.632,-90.0,top
+U1,MAX485E,SOIC-8_3.9x4.9mm_P1.27mm,132.715,-99.225,0.0,top
+U2,USBLC6-2P6,SOT-666,144.36,-99.225,0.0,top
