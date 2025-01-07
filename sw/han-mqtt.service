@@ -1,0 +1,10 @@
+[Unit]
+Description=HAN power meter MQTT report service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/han-mqtt-report.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
