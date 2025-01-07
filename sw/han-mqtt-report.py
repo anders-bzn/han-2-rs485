@@ -26,10 +26,7 @@ while True:
             line = ser.readline()
             mv[mvpos : mvpos+len(line)] = line
             mvpos += len(line)
-        #    print(line)
 
-        #print ('END', line[1:])
-    #print ("Publish")
     publish.single("sensor/power/house", mv.tobytes(), qos=0, retain=False, hostname="localhost",
                     port=1883, client_id="power-collect", keepalive=60, will=None, auth=None,
                     tls=None)
