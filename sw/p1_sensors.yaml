@@ -142,20 +142,20 @@ mqtt:
     value_template: "{{ value|float }}"
     unique_id: "adohLa1E"
 
-  - name: P1 L1 Instant Power Current
+  - name: P1 L1 Current
     unit_of_measurement: 'A'
-    state_topic: "sensors/power/p1meter/l1_instant_power_current"
+    state_topic: "sensors/power/p1meter/l1_current"
     value_template: "{{ value|float }}"
     unique_id: "Xah0eequ"
 
-  - name: P1 L2 Instant Power Current
+  - name: P1 L2 Current
     unit_of_measurement: 'A'
-    state_topic: "sensors/power/p1meter/l2_instant_power_current"
+    state_topic: "sensors/power/p1meter/l2_current"
     value_template: "{{ value|float }}"
     unique_id: "ooMao0eH"
 
-  - name: P1 L3 Instant Power Current
+  - name: P1 L3 Current
     unit_of_measurement: 'A'
-    state_topic: "sensors/power/p1meter/l3_instant_power_current"
+    state_topic: "sensors/power/p1meter/l3_current"
     value_template: "{{ value|float }}"
     unique_id: "imu8EeRe"

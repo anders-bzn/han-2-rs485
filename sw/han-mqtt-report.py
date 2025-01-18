@@ -29,9 +29,9 @@ topics = {
     "1-0:32.7.0": "l1_voltage",
     "1-0:52.7.0": "l2_voltage",
     "1-0:72.7.0": "l3_voltage",
-    "1-0:31.7.0": "l1_instant_power_current",
-    "1-0:51.7.0": "l2_instant_power_current",
-    "1-0:71.7.0": "l3_instant_power_current",
+    "1-0:31.7.0": "l1_current",
+    "1-0:51.7.0": "l2_current",
+    "1-0:71.7.0": "l3_current",
 }
 
 root_topic = "sensors/power/p1meter"
