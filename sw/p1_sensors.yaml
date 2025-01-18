@@ -1,0 +1,161 @@
+mqtt:
+  sensor:
+  - name: P1 Consumption
+    state_topic: "sensors/power/p1meter/consumption"
+    unit_of_measurement: 'kWh'
+    device_class: "energy"
+    state_class: "total_increasing"
+    value_template: "{{ value|float }}"
+    unique_id: "Eiy8ooxa"
+
+  - name: P1 Return Delivery
+    state_topic: "sensors/power/p1meter/returndelivery"
+    unit_of_measurement: 'kWh'
+    device_class: "energy"
+    state_class: "total_increasing"
+    value_template: "{{ value|float }}"
+    unique_id: "aePh6the"
+
+  - name: P1 Consumption Reactive
+    unit_of_measurement: 'kVArh'
+    state_topic: "sensors/power/p1meter/consumption_reactive"
+    value_template: "{{ value|float }}"
+    unique_id: "Mubei5Na"
+
+  - name: P1 Return Delivery Reactive
+    unit_of_measurement: 'kVArh'
+    state_topic: "sensors/power/p1meter/returndelivery_reactive"
+    value_template: "{{ value|float }}"
+    unique_id: "aac6Aexo"
+
+  - name: P1 Actual Power Consumption
+    unit_of_measurement: 'kW'
+    state_topic: "sensors/power/p1meter/actual_consumption"
+    value_template: "{{ value|float }}"
+    unique_id: "jeiLal1u"
+
+  - name: P1 Actual Return Delivery
+    unit_of_measurement: 'kW'
+    state_topic: "sensors/power/p1meter/actual_returndelivery"
+    value_template: "{{ value|float }}"
+    unique_id: "aeRoh5ph"
+
+  - name: P1 Actual Reactive Power Consumption
+    unit_of_measurement: 'kVAr'
+    state_topic: "sensors/power/p1meter/actual_consumption_reactive"
+    value_template: "{{ value|float }}"
+    unique_id: "fie5AiN1"
+
+  - name: P1 Actual Reactive Return Delivery
+    unit_of_measurement: 'kVAr'
+    state_topic: "sensors/power/p1meter/actual_returndelivery_reactive"
+    value_template: "{{ value|float }}"
+    unique_id: "shuF1ao7"
+
+  - name: P1 L1 Instant Power Usage
+    unit_of_measurement: 'kW'
+    state_topic: "sensors/power/p1meter/l1_instant_power_usage"
+    value_template: "{{ value|float }}"
+    unique_id: "chaePh1o"
+
+  - name: P1 L1 Instant Power Delivery
+    unit_of_measurement: 'kW'
+    state_topic: "sensors/power/p1meter/l1_instant_power_delivery"
+    value_template: "{{ value|float }}"
+    unique_id: "foo5Each"
+
+  - name: P1 L2 Instant Power Usage
+    unit_of_measurement: 'kW'
+    state_topic: "sensors/power/p1meter/l2_instant_power_usage"
+    value_template: "{{ value|float }}"
+    unique_id: "Thee7Ahl"
+
+  - name: P1 L2 Instant Power Delivery
+    unit_of_measurement: 'kW'
+    state_topic: "sensors/power/p1meter/l2_instant_power_delivery"
+    value_template: "{{ value|float }}"
+    unique_id: "Thop3pho"
+
+  - name: P1 L3 Instant Power Usage
+    unit_of_measurement: 'kW'
+    state_topic: "sensors/power/p1meter/l3_instant_power_usage"
+    value_template: "{{ value|float }}"
+    unique_id: "Ohsh8eey"
+
+  - name: P1 L3 Instant Power Delivery
+    unit_of_measurement: 'kW'
+    state_topic: "sensors/power/p1meter/l3_instant_power_delivery"
+    value_template: "{{ value|float }}"
+    unique_id: "yuo6Roos"
+
+  - name: P1 L1 Reactive Power Usage
+    unit_of_measurement: 'kVAr'
+    state_topic: "sensors/power/p1meter/l1_reactive_power_usage"
+    value_template: "{{ value|float }}"
+    unique_id: "foo6gahT"
+
+  - name: P1 L1 Reactive Power Delivery
+    unit_of_measurement: 'kVAr'
+    state_topic: "sensors/power/p1meter/l1_reactive_power_delivery"
+    value_template: "{{ value|float }}"
+    unique_id: "xahyai0I"
+
+  - name: P1 L2 Reactive Power Usage
+    unit_of_measurement: 'kVAr'
+    state_topic: "sensors/power/p1meter/l2_reactive_power_usage"
+    value_template: "{{ value|float }}"
+    unique_id: "wu7eiDuo"
+
+  - name: P1 L2 Reactive Power Delivery
+    unit_of_measurement: 'kVAr'
+    state_topic: "sensors/power/p1meter/l2_reactive_power_delivery"
+    value_template: "{{ value|float }}"
+    unique_id: "bie4aiS0"
+
+  - name: P1 L3 Reactive Power Usage
+    unit_of_measurement: 'kVAr'
+    state_topic: "sensors/power/p1meter/l3_reactive_power_usage"
+    value_template: "{{ value|float }}"
+    unique_id: "tahV6lee"
+
+  - name: P1 L3 Reactive Power Delivery
+    unit_of_measurement: 'kVAr'
+    state_topic: "sensors/power/p1meter/l3_reactive_power_delivery"
+    value_template: "{{ value|float }}"
+    unique_id: "aoy0OoTe"
+
+  - name: P1 L1 Voltage
+    unit_of_measurement: 'V'
+    state_topic: "sensors/power/p1meter/l1_voltage"
+    value_template: "{{ value|float }}"
+    unique_id: "SheSh9Ay"
+
+  - name: P1 L2 Voltage
+    unit_of_measurement: 'V'
+    state_topic: "sensors/power/p1meter/l2_voltage"
+    value_template: "{{ value|float }}"
+    unique_id: "ahluap1H"
+
+  - name: P1 L3 Voltage
+    unit_of_measurement: 'V'
+    state_topic: "sensors/power/p1meter/l3_voltage"
+    value_template: "{{ value|float }}"
+    unique_id: "adohLa1E"
+
+  - name: P1 L1 Instant Power Current
+    unit_of_measurement: 'A'
+    state_topic: "sensors/power/p1meter/l1_instant_power_current"
+    value_template: "{{ value|float }}"
+    unique_id: "Xah0eequ"
+
+  - name: P1 L2 Instant Power Current
+    unit_of_measurement: 'A'
+    state_topic: "sensors/power/p1meter/l2_instant_power_current"
+    value_template: "{{ value|float }}"
+    unique_id: "ooMao0eH"
+
+  - name: P1 L3 Instant Power Current
+    unit_of_measurement: 'A'
+    state_topic: "sensors/power/p1meter/l3_instant_power_current"
+    value_template: "{{ value|float }}"
+    unique_id: "imu8EeRe"
