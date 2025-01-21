@@ -1,0 +1,5 @@
+mqtt:
+  broker: "power-collect.local"
+  username:
+  password:
+  report_interval: 10

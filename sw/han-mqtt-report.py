@@ -1,9 +1,13 @@
 #!/bin/python3
+
+import os
+import paho.mqtt.client as mqtt
+import paho.mqtt.publish as publish
 import re
 import serial
-import paho.mqtt.publish as publish
+import yaml
 
-# Map telegram to mqtt topica
+# Map telegram to mqtt topic
 topics = {
     "0-0:1.0.0": "timestamp",
     "1-0:1.8.0": "consumption",
@@ -41,29 +45,56 @@ def postTopic(topic, value):
                     port=1883, client_id="power-collect", keepalive=60, will=None, auth=None,
                     tls=None)
 
+def loadConfig(config_file):
+    with open(config_file, 'r') as ymlfile:
+        try:
+            config = yaml.safe_load(ymlfile)
+        except yaml.YAMLError as exc:
+            print(exc)
+    return config
 
-try:
-    ser = serial.Serial('/dev/ttyAMA0', 115200, timeout=12)
-except:
-    print('FAIL: Could not open serial port')
-    exit(1)
+def main(config):
+    config_yaml = loadConfig(config)
 
-while True:
-    # Just use one telegram of out ten
-    for i in range(10):
-        mvpos=0
-        line = ser.readline()
-        while line[0] != ord('/'):
+    # Initialize serial port
+    try:
+        ser = serial.Serial('/dev/ttyAMA0', 115200, timeout=12)
+    except:
+        print('FAIL: Could not open serial port')
+        exit(1)
+
+    # Initialize the mqtt connection
+    client = mqtt.Client()
+
+    if config_yaml['mqtt']['username'] != None and config_yaml['mqtt']['password'] != None:
+        client.username_pw_set(config_yaml['mqtt']['username'], config_yaml['mqtt']['password'])
+
+    client.connect(config_yaml['mqtt']['broker'])
+    client.loop_start()
+
+    interval = int(config_yaml['mqtt']['report_interval'])
+
+    while True:
+        # Just use one telegram of out ten
+        for i in range(interval):
+            mvpos=0
             line = ser.readline()
+            while line[0] != ord('/'):
+                line = ser.readline()
 
-    while line[0] != ord('!'):
-        line = ser.readline()
-        data = (re.split('\*|W|\(', str(line)[2:]))
+        while line[0] != ord('!'):
+            line = ser.readline()
+            data = (re.split('\*|W|\(', str(line)[2:]))
 
-        if len(data) > 1 and data[0] != "0-0:1.0.0":
-            postTopic("{0}/{1}".format(root_topic, topics[data[0]]) ,data[1])
+            if len(data) > 1 and data[0] != "0-0:1.0.0":
+                topic = ("{0}/{1}".format(root_topic, topics[data[0]]))
+#                postTopic("{0}/{1}".format(root_topic, topics[data[0]]), data[1])
+#                topic = "sensors/temperature/{}".format(sensor['friendly'])
+                client.publish(topic, data[1])
 
-ser.close()
+    ser.close()
+
+main("/etc/han-mqtt-config.yaml")
 
 """ This is a telegram example
 '0-0:1.0.0(250107213151W)\r\n'

@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Must be root to install things
+if [ $USER != "root" ]; then
+    echo User must be root
+    exit 1
+fi
+
 CFILE="/boot/firmware/config.txt"
 
 # Overlay for serial port
@@ -13,6 +19,14 @@ if [ -z "$(grep -x "enable_uart=1" "$CFILE")" ]; then
     echo Add "enable_uart=1" to "$CFILE"
 fi
 
+# Python dependencies
+apt -y install python3-yaml
+apt -y install python3-paho-mqtt
+
+# Copy config, change if needed
+cp han-mqtt-config.yaml /etc/
+
+# Install service
 cp han-mqtt-report.py /usr/bin
 cp han-mqtt.service /etc/systemd/system
 systemctl enable han-mqtt.service
