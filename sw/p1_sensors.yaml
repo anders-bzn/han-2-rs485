@@ -9,7 +9,7 @@ mqtt:
     unique_id: "Eiy8ooxa"
 
   - name: P1 Return Delivery
-    state_topic: "sensors/power/p1meter/returndelivery"
+    state_topic: "sensors/power/p1meter/return_delivery"
     unit_of_measurement: 'kWh'
     device_class: "energy"
     state_class: "total_increasing"
@@ -24,7 +24,7 @@ mqtt:
 
   - name: P1 Return Delivery Reactive
     unit_of_measurement: 'kVArh'
-    state_topic: "sensors/power/p1meter/returndelivery_reactive"
+    state_topic: "sensors/power/p1meter/return_delivery_reactive"
     value_template: "{{ value|float }}"
     unique_id: "aac6Aexo"
 
@@ -36,7 +36,7 @@ mqtt:
 
   - name: P1 Actual Return Delivery
     unit_of_measurement: 'kW'
-    state_topic: "sensors/power/p1meter/actual_returndelivery"
+    state_topic: "sensors/power/p1meter/actual_return_delivery"
     value_template: "{{ value|float }}"
     unique_id: "aeRoh5ph"
 
@@ -48,7 +48,7 @@ mqtt:
 
   - name: P1 Actual Reactive Return Delivery
     unit_of_measurement: 'kVAr'
-    state_topic: "sensors/power/p1meter/actual_returndelivery_reactive"
+    state_topic: "sensors/power/p1meter/actual_return_delivery_reactive"
     value_template: "{{ value|float }}"
     unique_id: "shuF1ao7"
 
